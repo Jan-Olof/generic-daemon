@@ -1,4 +1,5 @@
-﻿using core;
+﻿using common;
+using core;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System.Threading;
@@ -9,22 +10,24 @@ namespace c_sharp_la_yumba
     public class Daemon : BackgroundService
     {
         private readonly ILogger _logger;
+        private readonly IMessageHandling _messageHandling;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Daemon" /> class.
         /// </summary>
-        public Daemon(ILogger<Daemon> logger)
+        public Daemon(ILogger<Daemon> logger, IMessageHandling messageHandling)
         {
             _logger = logger;
+            _messageHandling = messageHandling;
         }
 
         /// <inheritdoc />
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            _logger.LogInformation("Dispatch Daemon is running ExecuteAsync.");
+            _logger.LogInformation("Daemon is running ExecuteAsync.");
             _logger.LogDebug("Extra debug logging is shown.");
 
-            ProcessEvent.Process();
+            _messageHandling.HandleMessages(ProcessMessage.Process());
 
             await Task.CompletedTask;
         }
