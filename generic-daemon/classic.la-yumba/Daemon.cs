@@ -1,5 +1,5 @@
-﻿using common;
-using core;
+﻿using classic.common.messages;
+using classic.core;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System.Threading;

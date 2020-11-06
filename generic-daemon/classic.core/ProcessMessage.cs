@@ -1,8 +1,8 @@
-﻿using common;
+﻿using classic.common.messages;
 using System;
 using Unit = System.ValueTuple;
 
-namespace core
+namespace classic.core
 {
     public static class ProcessMessage
     {

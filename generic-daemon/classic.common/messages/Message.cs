@@ -1,26 +1,26 @@
 ﻿using System;
 
-namespace common
+namespace classic.common.messages
 {
     public class Message
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Message" /> class.
         /// </summary>
-        private Message(DateTime created, string data, MessageTypes type)
+        private Message(string data, DateTime timestamp, MessageTypes type)
         {
-            Created = created;
             Data = data;
+            Timestamp = timestamp;
             Type = type;
         }
 
-        public DateTime Created { get; }
-
         public string Data { get; }
+
+        public DateTime Timestamp { get; }
 
         public MessageTypes Type { get; }
 
-        public static Message Create(DateTime created, string data, MessageTypes type) =>
-            new Message(created, data, type);
+        public static Message Create(string data, DateTime timestamp, MessageTypes type) =>
+            new Message(data, timestamp, type);
     }
 }

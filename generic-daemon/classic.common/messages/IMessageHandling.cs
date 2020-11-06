@@ -1,7 +1,7 @@
 ﻿using System;
 using Unit = System.ValueTuple;
 
-namespace common
+namespace classic.common.messages
 {
     public interface IMessageHandling
     {

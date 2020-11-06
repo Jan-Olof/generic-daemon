@@ -1,5 +1,6 @@
-﻿using common;
-using core;
+﻿using classic.common;
+using classic.common.helpers;
+using classic.common.messages;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;

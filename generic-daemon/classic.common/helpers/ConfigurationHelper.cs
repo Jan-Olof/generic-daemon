@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 
-namespace common
+namespace classic.common.helpers
 {
     public static class ConfigurationHelper
     {
