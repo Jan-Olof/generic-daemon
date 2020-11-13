@@ -2,8 +2,8 @@
 {
     public enum MessageTypes
     {
-        AddThing = 0,
-        UpdateThing = 1,
-        RemoveThing = 2
+        NewThing = 0,
+        ThingChanged = 1,
+        ThingRemoved = 2
     }
 }

@@ -1,5 +1,4 @@
-﻿using classic.common;
-using classic.common.helpers;
+﻿using classic.common.helpers;
 using classic.common.messages;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -9,11 +8,8 @@ namespace c_sharp_la_yumba
 {
     public static class Startup
     {
-        public static IHostBuilder CreateBuilder()
-        {
-            var configuration = ConfigurationHelper.GetConfiguration();
-
-            return new HostBuilder()
+        public static IHostBuilder CreateBuilder() =>
+            new HostBuilder()
                 .ConfigureServices(services =>
                 {
                     services.AddSingleton<IMessageHandling, FakeMessageHandling>();
@@ -21,9 +17,8 @@ namespace c_sharp_la_yumba
                 })
                 .ConfigureLogging(logging =>
                 {
-                    logging.AddConfiguration(configuration.GetSection("Logging"));
+                    logging.AddConfiguration(ConfigurationHelper.GetConfiguration().GetSection("Logging"));
                     logging.AddConsole();
                 });
-        }
     }
 }
