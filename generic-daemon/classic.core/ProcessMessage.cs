@@ -12,7 +12,11 @@ namespace classic.core
 
         private static Unit ProcessOneMessage(Message message)
         {
-            var x = message.MessageToRequest();
+            var x = message.MessageToRequest()
+                .Match(
+                    () => Unit(),
+                    request => request.RunInteractor());
+
             return Unit();
         }
     }
