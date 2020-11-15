@@ -1,4 +1,4 @@
-﻿using classic.common.valueObjects;
+﻿using classic.common.time;
 using LaYumba.Functional;
 using System;
 
@@ -14,9 +14,14 @@ namespace classic.core.commands
 
         public string Name { get; }
 
-        public static Validation<AddThing> Create(Guid entityId, Timestamp created, string name)
+        public static Validation<Command> Create(Func<DateTime> now, Func<Guid> entityId, string name)
         {
-            // TODO: Func<DateTime> now, Func<Guid> createId
+            const string origin = nameof(AddThing);
+
+            var created = Timestamp.Create(now(), origin);
+
+            // TODO: HERE!
+
             throw new NotImplementedException();
             // return new AddThing(entityId, created, name);
         }

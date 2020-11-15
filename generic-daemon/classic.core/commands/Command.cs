@@ -1,4 +1,4 @@
-﻿using classic.common.valueObjects;
+﻿using classic.common.time;
 using System;
 
 namespace classic.core.commands
