@@ -2,7 +2,7 @@
 
 namespace classic.common.messages
 {
-    public class Message
+    public sealed record Message
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Message" /> class.

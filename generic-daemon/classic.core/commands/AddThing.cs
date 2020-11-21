@@ -4,7 +4,7 @@ using System;
 
 namespace classic.core.commands
 {
-    public class AddThing : Command
+    public record AddThing : Command
     {
         /// <inheritdoc />
         private AddThing(Guid entityId, Timestamp created, string name) : base(entityId, created)

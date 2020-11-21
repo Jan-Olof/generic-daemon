@@ -1,6 +1,6 @@
 ﻿namespace classic.common.things
 {
-    public class Thing
+    public record Thing
     {
     }
 }

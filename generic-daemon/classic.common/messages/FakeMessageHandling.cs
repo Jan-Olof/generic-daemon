@@ -4,7 +4,7 @@ using Unit = System.ValueTuple;
 
 namespace classic.common.messages
 {
-    public class FakeMessageHandling : IMessageHandling
+    public sealed record FakeMessageHandling : IMessageHandling
     {
         /// <inheritdoc />
         public Unit HandleMessages(Func<Message, Unit> processMessage)

@@ -3,7 +3,7 @@ using System;
 
 namespace classic.core.commands
 {
-    public abstract class Command
+    public abstract record Command
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Command" /> class.

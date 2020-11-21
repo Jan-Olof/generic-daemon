@@ -1,13 +1,17 @@
-﻿using System;
+﻿// ReSharper disable AutoPropertyCanBeMadeGetOnly.Global
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable ClassNeverInstantiated.Global
+
+using System;
 
 namespace classic.core.requests
 {
-    public class Update : Request
+    public record Update : Request
     {
         public Update() => Name = string.Empty;
 
-        public Guid Id { get; set; }
+        public Guid Id { get; init; }
 
-        public string Name { get; set; }
+        public string Name { get; init; }
     }
 }

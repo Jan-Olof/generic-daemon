@@ -1,9 +1,13 @@
-﻿namespace classic.core.requests
+﻿// ReSharper disable AutoPropertyCanBeMadeGetOnly.Global
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable ClassNeverInstantiated.Global
+
+namespace classic.core.requests
 {
-    public class Add : Request
+    public record Add : Request
     {
         public Add() => Name = string.Empty;
 
-        public string Name { get; set; }
+        public string Name { get; init; }
     }
 }

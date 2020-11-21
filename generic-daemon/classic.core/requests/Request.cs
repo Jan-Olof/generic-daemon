@@ -1,6 +1,6 @@
 ﻿namespace classic.core.requests
 {
-    public abstract class Request
+    public abstract record Request
     {
     }
 }
