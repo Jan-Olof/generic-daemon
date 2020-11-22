@@ -1,7 +1,10 @@
-﻿using classic.common.strings;
+﻿using classic.common.helpers;
+using classic.common.strings;
 using classic.common.time;
 using LaYumba.Functional;
 using System;
+using System.Collections.Generic;
+using static LaYumba.Functional.F;
 
 namespace classic.core.commands
 {
@@ -23,11 +26,17 @@ namespace classic.core.commands
             var id = guid();
             var nameVal = Text.CreateAndValidate(name, origin);
 
-            var x = IsValid(created, nameVal); // TODO: HERE!
-
-            throw new NotImplementedException();
-            // return new AddThing(entityId, created, name);
+            return IsValid(created, nameVal)
+                ? Valid<Command>(new AddThing(id, created.GetObject(), nameVal.GetObject()))
+                : Invalid(GetErrors(created, nameVal));
         }
+
+        private static IReadOnlyList<Error> GetErrors(
+            Validation<Timestamp> created,
+            Validation<Text> name) =>
+                new List<Error>()
+                    .AddMany(created.GetErrors())
+                    .AddMany(name.GetErrors());
 
         private static bool IsValid(
             Validation<Timestamp> created,
