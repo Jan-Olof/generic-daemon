@@ -1,8 +1,8 @@
 ﻿using functional.common.helpers;
 using functional.common.messages;
 using functional.core.requests;
-using LaYumba.Functional;
-using static LaYumba.Functional.F;
+using LanguageExt;
+using static LanguageExt.Prelude;
 
 namespace functional.core
 {
@@ -19,6 +19,6 @@ namespace functional.core
 
         private static Option<Request> DeserializeToRequest<T>(Message message) where T : Request =>
             message.Data.Deserialize<T>()
-                .Match(() => (Option<Request>)None, y => y);
+                .Map(request => (Request)request);
     }
 }

@@ -14,10 +14,10 @@ namespace functional.core
         {
             var x = message.MessageToRequest()
                 .Match(
-                    () => unit,
-                    request => request.RunInteractor(now, guid));
+                    request => request.RunInteractor(now, guid),
+                    () => unit);
 
-            return unit;
+            return unit; // TODO: Fix ProcessOneMessage.
         }
     }
 }

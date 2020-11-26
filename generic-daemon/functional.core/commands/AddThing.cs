@@ -1,10 +1,7 @@
-﻿using functional.common.helpers;
-using functional.common.strings;
+﻿using functional.common.strings;
 using functional.common.time;
-using LaYumba.Functional;
+using LanguageExt;
 using System;
-using System.Collections.Generic;
-using static LaYumba.Functional.F;
 
 namespace functional.core.commands
 {
@@ -16,7 +13,7 @@ namespace functional.core.commands
 
         public Text Name { get; }
 
-        public static Validation<Command> Create(Func<DateTime> now, Func<Guid> guid, string name)
+        public static Validation<Command, Command> Create(Func<DateTime> now, Func<Guid> guid, string name)
         {
             const string origin = nameof(AddThing);
 
@@ -24,21 +21,23 @@ namespace functional.core.commands
             var id = guid();
             var nameVal = Text.CreateAndValidate(name, origin);
 
-            return IsValid(created, nameVal)
-                ? Valid<Command>(new AddThing(id, created.GetObject(), nameVal.GetObject()))
-                : Invalid(GetErrors(created, nameVal));
+            //return IsValid(created, nameVal)
+            //    ? Valid<Command>(new AddThing(id, created.GetObject(), nameVal.GetObject()))
+            //    : Invalid(GetErrors(created, nameVal));
+
+            throw new NotImplementedException();
         }
 
-        private static IReadOnlyList<Error> GetErrors(
-            Validation<Timestamp> created,
-            Validation<Text> name) =>
-                new List<Error>()
-                    .AddMany(created.GetErrors())
-                    .AddMany(name.GetErrors());
+        //private static IReadOnlyList<Error> GetErrors(
+        //    Validation<Timestamp> created,
+        //    Validation<Text> name) =>
+        //        new List<Error>()
+        //            .AddMany(created.GetErrors())
+        //            .AddMany(name.GetErrors());
 
-        private static bool IsValid(
-            Validation<Timestamp> created,
-            Validation<Text> name) =>
-                created.IsValid && name.IsValid;
+        //private static bool IsValid(
+        //    Validation<Timestamp> created,
+        //    Validation<Text> name) =>
+        //        created.IsValid && name.IsValid;
     }
 }

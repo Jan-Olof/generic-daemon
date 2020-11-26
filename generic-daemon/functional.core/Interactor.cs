@@ -1,8 +1,8 @@
-﻿using System;
-using functional.core.commands;
+﻿using functional.core.commands;
 using functional.core.requests;
 using LanguageExt;
 using LaYumba.Functional;
+using System;
 using static LanguageExt.Prelude;
 
 namespace functional.core
