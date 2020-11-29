@@ -1,6 +1,5 @@
-﻿using System;
-using functional.common.errors;
-using LaYumba.Functional;
+﻿using LaYumba.Functional;
+using System;
 using static LaYumba.Functional.F;
 
 namespace functional.common.time
@@ -16,15 +15,21 @@ namespace functional.common.time
         {
             var value = now.Invoke();
 
-            return IsValid(value)
-                ? Valid(new Timestamp(value))
-                : Invalid(ErrorFactory.TimestampInvalid(value.ToString("s"), origin));
+            throw new NotImplementedException();
+            // TODO: Return here.
+            //return IsValid(value)
+            //    ? Valid(new Timestamp(value))
+            //    : Invalid(ErrorFactory.TimestampInvalid(value.ToString("s"), origin));
         }
 
-        public static Validation<Timestamp> Create(DateTime now, string origin) =>
-            IsValid(now)
-                ? Valid(new Timestamp(now))
-                : Invalid(ErrorFactory.TimestampInvalid(now.ToString("s"), origin));
+        public static Validation<Timestamp> Create(DateTime now, string origin)
+        {
+            throw new NotImplementedException();
+            // TODO: Return here.
+            //return IsValid(now)
+            //    ? Valid(new Timestamp(now))
+            //    : Invalid(ErrorFactory.TimestampInvalid(now.ToString("s"), origin));
+        }
 
         public static Option<Timestamp> CreateOptional(DateTime now) =>
             IsValid(now)

@@ -1,5 +1,5 @@
-﻿using functional.common.errors;
-using LaYumba.Functional;
+﻿using LaYumba.Functional;
+using System;
 using static LaYumba.Functional.F;
 
 namespace functional.common.strings
@@ -28,7 +28,7 @@ namespace functional.common.strings
         public override int GetHashCode() =>
             Value.GetHashCode();
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         public override string ToString() =>
             Value;
 
@@ -37,9 +37,13 @@ namespace functional.common.strings
                 ? None
                 : Some(new Text(name));
 
-        public static Validation<Text> CreateAndValidate(string name, string origin) =>
-            string.IsNullOrWhiteSpace(name)
-                ? Invalid(ErrorFactory.Missing($"Name: {name}", nameof(Text), origin))
-                : Valid(new Text(name));
+        public static Validation<Text> CreateAndValidate(string name, string origin)
+        {
+            throw new NotImplementedException();
+            // TODO: Return here.
+            //return string.IsNullOrWhiteSpace(name)
+            //    ? Invalid(ErrorFactory.Missing($"Name: {name}", nameof(Text), origin))
+            //    : Valid(new Text(name));
+        }
     }
 }

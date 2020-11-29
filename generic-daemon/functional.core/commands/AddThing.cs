@@ -21,6 +21,7 @@ namespace functional.core.commands
             var id = guid();
             var nameVal = Text.CreateAndValidate(name, origin);
 
+            // TODO: Return here.
             //return IsValid(created, nameVal)
             //    ? Valid<Command>(new AddThing(id, created.GetObject(), nameVal.GetObject()))
             //    : Invalid(GetErrors(created, nameVal));
