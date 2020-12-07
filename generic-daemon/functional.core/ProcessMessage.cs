@@ -1,4 +1,4 @@
-﻿using functional.common.messages;
+﻿using functional.common.entities.messages;
 using LanguageExt;
 using System;
 using static LanguageExt.Prelude;

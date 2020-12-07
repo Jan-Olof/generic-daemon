@@ -2,7 +2,7 @@
 using System;
 using static LaYumba.Functional.F;
 
-namespace functional.common.strings
+namespace functional.common.valueObjects
 {
     /// <summary>
     /// A string that contains something.

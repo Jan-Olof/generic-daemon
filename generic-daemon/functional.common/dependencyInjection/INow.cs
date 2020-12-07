@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace functional.common.time
+namespace functional.common.dependencyInjection
 {
     public interface INow
     {

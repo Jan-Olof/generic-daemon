@@ -2,7 +2,7 @@
 using System;
 using static LaYumba.Functional.F;
 
-namespace functional.common.time
+namespace functional.common.valueObjects
 {
     public struct Timestamp
     {

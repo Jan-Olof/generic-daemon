@@ -1,5 +1,5 @@
 ﻿using System;
-using functional.common.time;
+using functional.common.valueObjects;
 
 namespace functional.core.commands
 {

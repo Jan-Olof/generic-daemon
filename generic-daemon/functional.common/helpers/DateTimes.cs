@@ -2,7 +2,7 @@
 using static LaYumba.Functional.F;
 using Unit = System.ValueTuple;
 
-namespace functional.common.time
+namespace functional.common.helpers
 {
     public static class DateTimes
     {

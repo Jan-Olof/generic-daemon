@@ -1,6 +1,5 @@
 ﻿using functional.common.helpers;
-using functional.common.strings;
-using functional.common.time;
+using functional.common.valueObjects;
 using LaYumba.Functional;
 using System;
 using System.Collections.Generic;
