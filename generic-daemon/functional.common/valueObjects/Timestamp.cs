@@ -11,7 +11,7 @@ namespace functional.common.valueObjects
 
         public DateTime Value { get; }
 
-        public static Validation<Timestamp> Create(Func<DateTime> now, string origin)
+        public static validation.Validation<Timestamp> Create(Func<DateTime> now, string origin)
         {
             var value = now.Invoke();
 
@@ -22,7 +22,7 @@ namespace functional.common.valueObjects
             //    : Invalid(ErrorFactory.TimestampInvalid(value.ToString("s"), origin));
         }
 
-        public static Validation<Timestamp> Create(DateTime now, string origin)
+        public static validation.Validation<Timestamp> Create(DateTime now, string origin)
         {
             throw new NotImplementedException();
             // TODO: Return here.

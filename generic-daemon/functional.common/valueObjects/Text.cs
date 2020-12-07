@@ -37,7 +37,7 @@ namespace functional.common.valueObjects
                 ? None
                 : Some(new Text(name));
 
-        public static Validation<Text> CreateAndValidate(string name, string origin)
+        public static validation.Validation<Text> CreateAndValidate(string name, string origin)
         {
             throw new NotImplementedException();
             // TODO: Return here.
