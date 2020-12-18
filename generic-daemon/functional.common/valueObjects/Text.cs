@@ -1,6 +1,7 @@
-﻿using LaYumba.Functional;
+﻿using functional.common.errors;
+using LanguageExt;
 using System;
-using static LaYumba.Functional.F;
+using static LanguageExt.Prelude;
 
 namespace functional.common.valueObjects
 {
@@ -37,7 +38,7 @@ namespace functional.common.valueObjects
                 ? None
                 : Some(new Text(name));
 
-        public static validation.Validation<Text> CreateAndValidate(string name, string origin)
+        public static validation.Validation<Text> CreateAndValidate(string name, Origin origin)
         {
             throw new NotImplementedException();
             // TODO: Return here.

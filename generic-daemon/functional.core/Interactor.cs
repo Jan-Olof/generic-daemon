@@ -14,6 +14,6 @@ namespace functional.core
                 .Map(cmd => ShowCommand(cmd))
                 .Match(errors => unit, command => unit); // TODO: Continue after CommandFactory!
 
-        private static Command ShowCommand(Command cmd) => cmd;
+        private static Command ShowCommand(Command cmd) => cmd; // TODO: Remove!
     }
 }

@@ -1,6 +1,8 @@
-﻿using LaYumba.Functional;
+﻿using LanguageExt;
 using System;
-using static LaYumba.Functional.F;
+using functional.common.errors;
+using functional.common.valueObjects.validation;
+using static LanguageExt.Prelude;
 
 namespace functional.common.valueObjects
 {
@@ -11,7 +13,7 @@ namespace functional.common.valueObjects
 
         public DateTime Value { get; }
 
-        public static validation.Validation<Timestamp> Create(Func<DateTime> now, string origin)
+        public static Validation<Timestamp> Create(Func<DateTime> now, string origin)
         {
             var value = now.Invoke();
 
@@ -22,13 +24,11 @@ namespace functional.common.valueObjects
             //    : Invalid(ErrorFactory.TimestampInvalid(value.ToString("s"), origin));
         }
 
-        public static validation.Validation<Timestamp> Create(DateTime now, string origin)
+        public static Validation<Timestamp> Create(DateTime now, Origin origin)
         {
-            throw new NotImplementedException();
-            // TODO: Return here.
-            //return IsValid(now)
-            //    ? Valid(new Timestamp(now))
-            //    : Invalid(ErrorFactory.TimestampInvalid(now.ToString("s"), origin));
+            return IsValid(now)
+                ? V.Valid(new Timestamp(now))
+                : V.Invalid(ErrorFactory.TimestampInvalid(now.ToString("s"), origin));
         }
 
         public static Option<Timestamp> CreateOptional(DateTime now) =>

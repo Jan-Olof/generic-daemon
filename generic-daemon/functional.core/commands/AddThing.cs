@@ -17,7 +17,7 @@ namespace functional.core.commands
 
         public static Validation<Command> Create(Func<DateTime> now, Func<Guid> guid, string name)
         {
-            const string origin = nameof(AddThing);
+            var origin = Origin.Create(nameof(Timestamp), nameof(Create));
 
             var created = Timestamp.Create(now(), origin);
             var id = guid();
