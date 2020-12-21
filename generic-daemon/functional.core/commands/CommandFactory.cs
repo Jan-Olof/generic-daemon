@@ -1,4 +1,4 @@
-﻿using functional.common.valueObjects.validation;
+﻿using functional.common.valueObjects.validate;
 using functional.core.requests;
 using System;
 
@@ -6,7 +6,7 @@ namespace functional.core.commands
 {
     public static class CommandFactory
     {
-        public static Validation<Command> CreateCommand(this Request request, Func<DateTime> now, Func<Guid> guid) =>
+        public static Validate<Command> CreateCommand(this Request request, Func<DateTime> now, Func<Guid> guid) =>
             request switch
             {
                 Add add => AddThing.Create(now, guid, add.Name), // TODO: Finish this.

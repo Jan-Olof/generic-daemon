@@ -1,4 +1,4 @@
-﻿using functional.common.valueObjects.validation;
+﻿using functional.common.valueObjects.validate;
 using functional.core.commands;
 using functional.core.requests;
 using LanguageExt;
