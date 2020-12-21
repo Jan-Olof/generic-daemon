@@ -1,7 +1,7 @@
-﻿using LanguageExt;
-using System;
-using functional.common.errors;
+﻿using functional.common.errors;
 using functional.common.valueObjects.validation;
+using LanguageExt;
+using System;
 using static LanguageExt.Prelude;
 
 namespace functional.common.valueObjects
@@ -13,25 +13,13 @@ namespace functional.common.valueObjects
 
         public DateTime Value { get; }
 
-        public static Validation<Timestamp> Create(Func<DateTime> now, string origin)
-        {
-            var value = now.Invoke();
+        public static Validation<Timestamp> Create(Func<DateTime> now, Origin origin) =>
+            IsValid(now.Invoke(), origin);
 
-            throw new NotImplementedException();
-            // TODO: Return here.
-            //return IsValid(value)
-            //    ? Valid(new Timestamp(value))
-            //    : Invalid(ErrorFactory.TimestampInvalid(value.ToString("s"), origin));
-        }
+        public static Validation<Timestamp> Create(DateTime now, Origin origin) =>
+            IsValid(now, origin);
 
-        public static Validation<Timestamp> Create(DateTime now, Origin origin)
-        {
-            return IsValid(now)
-                ? V.Valid(new Timestamp(now))
-                : V.Invalid(ErrorFactory.TimestampInvalid(now.ToString("s"), origin));
-        }
-
-        public static Option<Timestamp> CreateOptional(DateTime now) =>
+        public static Option<Timestamp> Create(DateTime now) =>
             IsValid(now)
                 ? Some(new Timestamp(now))
                 : None;
@@ -53,5 +41,10 @@ namespace functional.common.valueObjects
 
         private static bool IsValid(DateTime value) =>
             value > new DateTime(2000, 1, 1) && value < new DateTime(2100, 1, 1);
+
+        private static Validation<Timestamp> IsValid(DateTime value, Origin origin) =>
+            IsValid(value)
+                ? V.Valid(new Timestamp(value))
+                : V.Invalid(ErrorFactory.TimestampInvalid(value.ToString("s"), origin));
     }
 }

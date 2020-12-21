@@ -1,6 +1,6 @@
-﻿using System;
-using static LaYumba.Functional.F;
-using Unit = System.ValueTuple;
+﻿using LanguageExt;
+using System;
+using static LanguageExt.Prelude;
 
 namespace functional.common.helpers
 {
@@ -27,7 +27,7 @@ namespace functional.common.helpers
         public static Unit Wait(int milliseconds)
         {
             System.Threading.Thread.Sleep(milliseconds);
-            return Unit();
+            return unit;
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using functional.common.errors;
+using functional.common.valueObjects.validation;
 using LanguageExt;
-using System;
 using static LanguageExt.Prelude;
 
 namespace functional.common.valueObjects
@@ -38,13 +38,9 @@ namespace functional.common.valueObjects
                 ? None
                 : Some(new Text(name));
 
-        public static validation.Validation<Text> CreateAndValidate(string name, Origin origin)
-        {
-            throw new NotImplementedException();
-            // TODO: Return here.
-            //return string.IsNullOrWhiteSpace(name)
-            //    ? Invalid(ErrorFactory.Missing($"Name: {name}", nameof(Text), origin))
-            //    : Valid(new Text(name));
-        }
+        public static Validation<Text> CreateAndValidate(string name, Origin origin) =>
+            string.IsNullOrWhiteSpace(name)
+                ? V.Invalid(ErrorFactory.Missing($"Name: {name}", origin))
+                : V.Valid(new Text(name));
     }
 }
