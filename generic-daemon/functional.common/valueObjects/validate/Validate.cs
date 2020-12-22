@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace functional.common.valueObjects.validate
 {
-    public struct Validate<T>
+    public readonly struct Validate<T>
     {
         internal IEnumerable<Error> Errors { get; }
         internal T Value { get; }
@@ -47,13 +47,13 @@ namespace functional.common.valueObjects.validate
 
         public static implicit operator Validate<T>(T right) => V.Valid(right);
 
-        public TR Match<TR>(Func<IEnumerable<Error>, TR> Invalid, Func<T, TR> Valid) =>
+        public TR Match<TR>(Func<IEnumerable<Error>, TR> invalid, Func<T, TR> valid) =>
             IsValid
-                ? Valid(this.Value)
-                : Invalid(this.Errors);
+                ? valid(this.Value)
+                : invalid(this.Errors);
 
-        public Unit Match(Action<IEnumerable<Error>> Invalid, Action<T> Valid) =>
-            Match(Invalid.ToFunc(), Valid.ToFunc());
+        public Unit Match(Action<IEnumerable<Error>> invalid, Action<T> valid) =>
+            Match(invalid.ToFunc(), valid.ToFunc());
 
         public IEnumerator<T> AsEnumerable()
         {

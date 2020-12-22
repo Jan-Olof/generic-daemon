@@ -8,7 +8,7 @@ namespace functional.common.valueObjects
     /// <summary>
     /// A string that contains something.
     /// </summary>
-    public struct Text
+    public readonly struct Text
     {
         private Text(string value) => Value = value;
 

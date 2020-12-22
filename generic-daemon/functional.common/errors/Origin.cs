@@ -1,6 +1,6 @@
 ﻿namespace functional.common.errors
 {
-    public class Origin
+    public record Origin
     {
         private Origin(string cls, string func)
         {

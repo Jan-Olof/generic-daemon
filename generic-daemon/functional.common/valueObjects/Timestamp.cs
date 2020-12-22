@@ -6,7 +6,7 @@ using static LanguageExt.Prelude;
 
 namespace functional.common.valueObjects
 {
-    public struct Timestamp
+    public readonly struct Timestamp
     {
         private Timestamp(DateTime value) =>
             Value = value;
@@ -28,10 +28,10 @@ namespace functional.common.valueObjects
             timestamp.Value;
 
         public static bool operator !=(Timestamp left, Timestamp right) =>
-            !(left == right);
+            !(left.Value == right.Value);
 
         public static bool operator ==(Timestamp left, Timestamp right) =>
-            left.Equals(right);
+            left.Value.Equals(right.Value);
 
         public override bool Equals(object? obj) =>
             obj is Timestamp ts && this == ts;

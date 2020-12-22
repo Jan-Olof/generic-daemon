@@ -4,7 +4,7 @@ using static LanguageExt.Prelude;
 
 namespace functional.common.errors
 {
-    public abstract class Error
+    public abstract record Error
     {
         protected Error(string message, Origin origin)
         {

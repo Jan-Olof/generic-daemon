@@ -12,12 +12,12 @@ namespace functional.common.valueObjects.validate
     {
         public static Validate<TR> Apply<T, TR>(this Validate<Func<T, TR>> valF, Validate<T> valT) =>
             valF.Match(
-              Valid: (f) => valT.Match(
-                 Valid: (t) => V.Valid(f(t)),
-                 Invalid: (err) => V.Invalid(err)),
-              Invalid: (errF) => valT.Match(
-                 Valid: (_) => V.Invalid(errF),
-                 Invalid: (errT) => V.Invalid(errF.Concat(errT))));
+              valid: (f) => valT.Match(
+                 valid: (t) => V.Valid(f(t)),
+                 invalid: (err) => V.Invalid(err)),
+              invalid: (errF) => valT.Match(
+                 valid: (_) => V.Invalid(errF),
+                 invalid: (errT) => V.Invalid(errF.Concat(errT))));
 
         public static Validate<Func<T2, TR>> Apply<T1, T2, TR>(this Validate<Func<T1, T2, TR>> @this, Validate<T1> arg) =>
             Apply(@this.Map(func => curry(func)), arg);
@@ -27,8 +27,8 @@ namespace functional.common.valueObjects.validate
 
         public static Validate<TR> Bind<T, TR>(this Validate<T> val, Func<T, Validate<TR>> f) =>
             val.Match(
-               Invalid: (err) => V.Invalid(err),
-               Valid: (r) => f(r));
+               invalid: (err) => V.Invalid(err),
+               valid: (r) => f(r));
 
         public static Validate<T> Do<T>(this Validate<T> @this, Action<T> action)
         {
@@ -43,16 +43,16 @@ namespace functional.common.valueObjects.validate
         /// Get all errors.
         /// </summary>
         public static IEnumerable<Error> GetErrors<T>(this Validate<T> validate) =>
-            validate.Match(e => e, t => new List<Error>());
+            validate.Match(e => e, _ => new List<Error>());
 
         public static T GetOrElse<T>(this Validate<T> opt, T defaultValue) =>
             opt.Match(
-              (errs) => defaultValue,
+              (_) => defaultValue,
               (t) => t);
 
         public static T GetOrElse<T>(this Validate<T> opt, Func<T> fallback) =>
             opt.Match(
-              (errs) => fallback(),
+              (_) => fallback(),
               (t) => t);
 
         /// <summary>
@@ -60,8 +60,11 @@ namespace functional.common.valueObjects.validate
         /// </summary>
         public static T GetOrException<T>(this Validate<T> validate) =>
             validate.Match(
-                e => throw new InvalidOperationException("The object is invalid."),
+                _ => throw new InvalidOperationException("The object is invalid."),
                 t => t);
+
+        public static bool IsInvalid<T>(this Validate<T> validate) =>
+            !validate.IsValid;
 
         public static Validate<TRr> Map<TR, TRr>(this Validate<TR> @this, Func<TR, TRr> f) =>
             @this.IsValid
@@ -77,10 +80,10 @@ namespace functional.common.valueObjects.validate
         // LINQ
         public static Validate<TRr> SelectMany<T, TR, TRr>(this Validate<T> @this, Func<T, Validate<TR>> bind, Func<T, TR, TRr> project) =>
             @this.Match(
-              Invalid: (err) => V.Invalid(err),
-              Valid: (t) => bind(t).Match(
-                 Invalid: (err) => V.Invalid(err),
-                 Valid: (r) => V.Valid(project(t, r))));
+              invalid: (err) => V.Invalid(err),
+              valid: (t) => bind(t).Match(
+                 invalid: (err) => V.Invalid(err),
+                 valid: (r) => V.Valid(project(t, r))));
 
         private static Func<T1, Func<T2, T3, TR>> CurryFirst<T1, T2, T3, TR>(this Func<T1, T2, T3, TR> @this) =>
             t1 => (t2, t3) => @this(t1, t2, t3);

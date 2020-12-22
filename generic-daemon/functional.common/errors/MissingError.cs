@@ -1,6 +1,6 @@
 ﻿namespace functional.common.errors
 {
-    public sealed class MissingError : Error
+    public sealed record MissingError : Error
     {
         public MissingError(string type, Origin origin)
             : base($"{type} missing.", origin) { }
