@@ -1,5 +1,5 @@
-﻿using System;
-using functional.common.valueObjects;
+﻿using functional.common.valueObjects;
+using System;
 
 namespace functional.core.commands
 {
@@ -8,14 +8,14 @@ namespace functional.core.commands
         /// <summary>
         /// Initializes a new instance of the <see cref="Command" /> class.
         /// </summary>
-        protected Command(Guid entityId, Timestamp created)
+        protected Command(Guid id, Timestamp created)
         {
-            EntityId = entityId;
+            Id = id;
             Created = created;
         }
 
         public Timestamp Created { get; }
 
-        public Guid EntityId { get; }
+        public Guid Id { get; }
     }
 }
