@@ -4,6 +4,7 @@ using LanguageExt;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using static functional.common.valueObjects.validate.V;
 using static LanguageExt.Prelude;
 
 namespace functional.common.valueObjects.validate
@@ -13,21 +14,21 @@ namespace functional.common.valueObjects.validate
         public static Validate<TR> Apply<T, TR>(this Validate<Func<T, TR>> valF, Validate<T> valT) =>
             valF.Match(
               valid: (f) => valT.Match(
-                 valid: (t) => V.Valid(f(t)),
-                 invalid: (err) => V.Invalid(err)),
+                 valid: (t) => Valid(f(t)),
+                 invalid: (err) => Invalid(err)),
               invalid: (errF) => valT.Match(
-                 valid: (_) => V.Invalid(errF),
-                 invalid: (errT) => V.Invalid(errF.Concat(errT))));
+                 valid: (_) => Invalid(errF),
+                 invalid: (errT) => Invalid(errF.Concat(errT))));
 
         public static Validate<Func<T2, TR>> Apply<T1, T2, TR>(this Validate<Func<T1, T2, TR>> @this, Validate<T1> arg) =>
             Apply(@this.Map(func => curry(func)), arg);
 
         public static Validate<Func<T2, T3, TR>> Apply<T1, T2, T3, TR>(this Validate<Func<T1, T2, T3, TR>> @this, Validate<T1> arg) =>
-            Apply(@this.Map(func => CurryFirst(func)), arg);
+            Apply(@this.Map(func => func.CurryFirst()), arg);
 
         public static Validate<TR> Bind<T, TR>(this Validate<T> val, Func<T, Validate<TR>> f) =>
             val.Match(
-               invalid: (err) => V.Invalid(err),
+               invalid: (err) => Invalid(err),
                valid: (r) => f(r));
 
         public static Validate<T> Do<T>(this Validate<T> @this, Action<T> action)
@@ -68,8 +69,8 @@ namespace functional.common.valueObjects.validate
 
         public static Validate<TRr> Map<TR, TRr>(this Validate<TR> @this, Func<TR, TRr> f) =>
             @this.IsValid
-              ? V.Valid(f(@this.Value))
-              : V.Invalid(@this.Errors);
+              ? Valid(f(@this.Value))
+              : Invalid(@this.Errors);
 
         public static Validate<Func<T2, TR>> Map<T1, T2, TR>(this Validate<T1> @this, Func<T1, T2, TR> func) =>
             @this.Map(curry(func));
@@ -80,13 +81,10 @@ namespace functional.common.valueObjects.validate
         // LINQ
         public static Validate<TRr> SelectMany<T, TR, TRr>(this Validate<T> @this, Func<T, Validate<TR>> bind, Func<T, TR, TRr> project) =>
             @this.Match(
-              invalid: (err) => V.Invalid(err),
+              invalid: (err) => Invalid(err),
               valid: (t) => bind(t).Match(
-                 invalid: (err) => V.Invalid(err),
-                 valid: (r) => V.Valid(project(t, r))));
-
-        private static Func<T1, Func<T2, T3, TR>> CurryFirst<T1, T2, T3, TR>(this Func<T1, T2, T3, TR> @this) =>
-            t1 => (t2, t3) => @this(t1, t2, t3);
+                 invalid: (err) => Invalid(err),
+                 valid: (r) => Valid(project(t, r))));
 
         public struct Invalid
         {

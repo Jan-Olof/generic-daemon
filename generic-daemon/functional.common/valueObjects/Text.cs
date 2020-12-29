@@ -1,6 +1,7 @@
 ﻿using functional.common.errors;
 using functional.common.valueObjects.validate;
 using LanguageExt;
+using static functional.common.valueObjects.validate.V;
 using static LanguageExt.Prelude;
 
 namespace functional.common.valueObjects
@@ -33,14 +34,14 @@ namespace functional.common.valueObjects
         public override string ToString() =>
             Value;
 
-        public static Option<Text> Create(string name) =>
-            string.IsNullOrWhiteSpace(name)
+        public static Option<Text> Create(string text) =>
+            string.IsNullOrWhiteSpace(text)
                 ? None
-                : Some(new Text(name));
+                : Some(new Text(text));
 
-        public static Validate<Text> CreateAndValidate(string name, Origin origin) =>
-            string.IsNullOrWhiteSpace(name)
-                ? V.Invalid(ErrorFactory.Missing($"Name: {name}", origin))
-                : V.Valid(new Text(name));
+        public static Validate<Text> CreateAndValidate(string text, Origin origin) =>
+            string.IsNullOrWhiteSpace(text)
+                ? Invalid(ErrorFactory.TextInvalid(text, origin))
+                : Valid(new Text(text));
     }
 }

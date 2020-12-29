@@ -8,7 +8,8 @@ namespace functional.core.requests
 {
     public record Update : Request
     {
-        public Update() => Name = string.Empty;
+        public Update() =>
+            Name = string.Empty;
 
         public Guid Id { get; init; }
 

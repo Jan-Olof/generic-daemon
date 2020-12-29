@@ -6,7 +6,7 @@ namespace functional.common.valueObjects.validate
     /// <summary>
     /// Create Validation.
     /// </summary>
-    public static class V
+    public static partial class V
     {
         /// <summary>
         /// Create a Validation in the Valid state.

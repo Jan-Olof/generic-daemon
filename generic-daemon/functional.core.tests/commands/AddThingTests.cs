@@ -1,7 +1,10 @@
+using functional.common.tests.SampleObjects;
 using functional.common.valueObjects.validate;
 using functional.core.commands;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Immutable;
+using System.Linq;
 
 namespace functional.core.tests.commands
 {
@@ -9,23 +12,44 @@ namespace functional.core.tests.commands
     public class AddThingTests
     {
         [TestMethod]
-        public void TestShouldCreateAddThing()
+        public void TestShouldCreateAddThing_Valid()
         {
             // Given
-            Func<DateTime> now() => () => new DateTime(2020, 12, 22, 7, 7, 7);
-            Func<Guid> guid() => () => Guid.Parse("3e60685f-b6e3-4006-a1bc-0f338afadabd");
-            string name = "Cool Name";
+            static Func<DateTime> Now() => () => new DateTime(2020, 12, 22, 7, 7, 7);
+            static Func<Guid> Guid() => Guids.One;
+            const string name = "Cool Name";
 
             // When
-            var result = AddThing.Create(now(), guid(), name);
+            var result = Guid().CreateAddThing(Now(), name);
 
             // Then
             Assert.IsTrue(result.IsValid);
             var addThing = (AddThing)result.GetOrException();
 
-            Assert.AreEqual(now().Invoke(), addThing.Created);
-            Assert.AreEqual(guid().Invoke(), addThing.Id);
+            Assert.AreEqual(Now().Invoke(), addThing.Created);
+            Assert.AreEqual(Guid().Invoke(), addThing.Id);
             Assert.AreEqual(name, addThing.Name);
+        }
+
+        [DataRow(1999, "   ", 3)]
+        [DataRow(2020, "   ", 2)]
+        [DataRow(2020, "A Name", 1)]
+        [DataTestMethod]
+        public void TestShouldCreateAddThing_Invalid(int year, string name, int expected)
+        {
+            // Given
+            Func<DateTime> Now() => () => new DateTime(year, 12, 22, 7, 7, 7);
+            static Func<Guid> Guid() => () => System.Guid.Empty;
+
+            // When
+            var result = Guid().CreateAddThing(Now(), name);
+
+            // Then
+            Assert.IsTrue(result.IsInvalid());
+            var errors = result.GetErrors().ToImmutableList();
+
+            Assert.AreEqual(expected, errors.Count);
+            Assert.AreEqual("The GUID 00000000-0000-0000-0000-000000000000 is invalid.", errors.First().Message);
         }
     }
 }

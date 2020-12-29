@@ -4,12 +4,17 @@ using LanguageExt;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using static functional.common.valueObjects.validate.V;
+
+#pragma warning disable 8618
+#pragma warning disable 8601
 
 namespace functional.common.valueObjects.validate
 {
     public readonly struct Validate<T>
     {
         internal IEnumerable<Error> Errors { get; }
+
         internal T Value { get; }
 
         public bool IsValid { get; }
@@ -17,7 +22,7 @@ namespace functional.common.valueObjects.validate
         /// <summary>
         /// The Return function for Validation.
         /// </summary>
-        public static Func<T, Validate<T>> Return = t => V.Valid(t);
+        public static Func<T, Validate<T>> Return = t => Valid(t);
 
         public static Validate<T> Fail(IEnumerable<Error> errors) =>
             new Validate<T>(errors);
@@ -45,12 +50,12 @@ namespace functional.common.valueObjects.validate
         public static implicit operator Validate<T>(Validate.Invalid left) =>
             new Validate<T>(left.Errors);
 
-        public static implicit operator Validate<T>(T right) => V.Valid(right);
+        public static implicit operator Validate<T>(T right) => Valid(right);
 
         public TR Match<TR>(Func<IEnumerable<Error>, TR> invalid, Func<T, TR> valid) =>
             IsValid
-                ? valid(this.Value)
-                : invalid(this.Errors);
+                ? valid(Value)
+                : invalid(Errors);
 
         public Unit Match(Action<IEnumerable<Error>> invalid, Action<T> valid) =>
             Match(invalid.ToFunc(), valid.ToFunc());
@@ -65,7 +70,10 @@ namespace functional.common.valueObjects.validate
                 ? $"Valid({Value})"
                 : $"Invalid([{string.Join(", ", Errors)}])";
 
-        public override bool Equals(object obj) =>
-            ToString() == obj.ToString(); // hack
+        public override bool Equals(object? obj) =>
+            ToString() == obj?.ToString(); // hack
+
+        public override int GetHashCode() =>
+            throw new NotImplementedException();
     }
 }

@@ -17,4 +17,8 @@
     <ProjectReference Include="..\functional.common\functional.common.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="SampleObjects\" />
+  </ItemGroup>
+
 </Project>

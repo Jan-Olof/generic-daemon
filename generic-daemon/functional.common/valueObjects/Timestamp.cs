@@ -2,6 +2,7 @@
 using functional.common.valueObjects.validate;
 using LanguageExt;
 using System;
+using static functional.common.valueObjects.validate.V;
 using static LanguageExt.Prelude;
 
 namespace functional.common.valueObjects
@@ -44,7 +45,7 @@ namespace functional.common.valueObjects
 
         private static Validate<Timestamp> IsValid(DateTime value, Origin origin) =>
             IsValid(value)
-                ? V.Valid(new Timestamp(value))
-                : V.Invalid(ErrorFactory.TimestampInvalid(value.ToString("s"), origin));
+                ? Valid(new Timestamp(value))
+                : Invalid(ErrorFactory.TimestampInvalid(value.ToString("s"), origin));
     }
 }

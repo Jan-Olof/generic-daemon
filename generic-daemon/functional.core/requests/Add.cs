@@ -6,7 +6,8 @@ namespace functional.core.requests
 {
     public record Add : Request
     {
-        public Add() => Name = string.Empty;
+        public Add() =>
+            Name = string.Empty;
 
         public string Name { get; init; }
     }
