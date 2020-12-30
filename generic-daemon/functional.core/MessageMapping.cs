@@ -19,6 +19,6 @@ namespace functional.core
 
         private static Option<Request> DeserializeToRequest<T>(Message message) where T : Request =>
             message.Data.Deserialize<T>()
-                .Map(request => (Request)request);
+                .Map(request => request.Create(message.MessageId));
     }
 }

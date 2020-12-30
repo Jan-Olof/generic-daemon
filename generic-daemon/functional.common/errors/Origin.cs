@@ -1,22 +1,30 @@
-﻿namespace functional.common.errors
+﻿using System;
+
+namespace functional.common.errors
 {
     public record Origin
     {
-        private Origin(string cls, string func)
+        private Origin(Guid id, string cls, string func)
         {
             Class = cls;
             Function = func;
+            Id = id;
         }
 
-        public string Class { get; }
+        public string Class { get; private init; }
 
-        public string Function { get; }
+        public string Function { get; private init; }
 
-        public static Origin Create(string cls, string func) =>
-            new Origin(cls, func);
+        public Guid Id { get; private init; }
+
+        public static Origin Create(Guid id, string cls, string func) =>
+            new(id, cls, func);
+
+        public Origin Create(Guid id) =>
+            this with { Id = id };
 
         /// <inheritdoc />
         public override string ToString() =>
-            $"$Origin: {Function} in {Class}.";
+            $"Origin: {Function} in {Class} with Id: {Id}.";
     }
 }

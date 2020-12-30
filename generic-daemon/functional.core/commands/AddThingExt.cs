@@ -10,24 +10,24 @@ namespace functional.core.commands
     public static class AddThingExt
     {
         private static readonly Origin Origin
-            = Origin.Create(nameof(AddThingExt), nameof(CreateAddThing));
+            = Origin.Create(Guid.Empty, nameof(AddThingExt), nameof(CreateAddThing));
 
-        private static readonly Func<Guid, Validate<Guid>> ValidGuid
-            = guid => guid.CreateAndValidate(Origin);
+        private static readonly Func<Guid, Origin, Validate<Guid>> ValidGuid
+            = (guid, origin) => guid.CreateAndValidate(origin);
 
-        private static readonly Func<DateTime, Validate<Timestamp>> ValidTimestamp
-            = dateTime => Timestamp.Create(dateTime, Origin);
+        private static readonly Func<DateTime, Origin, Validate<Timestamp>> ValidTimestamp
+            = Timestamp.Create;
 
-        private static readonly Func<string, Validate<Text>> ValidName
-            = name => Text.CreateAndValidate(name, Origin);
+        private static readonly Func<string, Origin, Validate<Text>> ValidName
+            = Text.CreateAndValidate;
 
         /// <summary>
         /// Create a new Validate AddThing object.
         /// </summary>
-        public static Validate<Command> CreateAddThing(this Func<Guid> guid, Func<DateTime> now, string name) =>
+        public static Validate<Command> CreateAddThing(this Func<Guid> guid, Func<DateTime> now, string name, Guid messageId) =>
             Valid(AddThing.Create)
-                .Apply(ValidGuid(guid()))
-                .Apply(ValidTimestamp(now()))
-                .Apply(ValidName(name));
+                .Apply(ValidGuid(guid(), Origin.Create(messageId)))
+                .Apply(ValidTimestamp(now(), Origin.Create(messageId)))
+                .Apply(ValidName(name, Origin.Create(messageId)));
     }
 }

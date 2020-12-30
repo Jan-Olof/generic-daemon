@@ -1,5 +1,6 @@
 using functional.common.errors;
 using functional.common.helpers;
+using functional.common.tests.SampleObjects;
 using functional.common.valueObjects;
 using functional.common.valueObjects.validate;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -15,7 +16,7 @@ namespace functional.common.tests.valueObjects
         {
             // Given
             var now = new DateTime(2020, 12, 21, 7, 7, 7);
-            var origin = Origin.Create(nameof(TimestampTests), nameof(TestShouldCreateTimestamp_Validate_Valid));
+            var origin = Origin.Create(Guids.One(), nameof(TimestampTests), nameof(TestShouldCreateTimestamp_Validate_Valid));
 
             // When
             var result = Timestamp.Create(now, origin);
@@ -30,7 +31,7 @@ namespace functional.common.tests.valueObjects
         {
             // Given
             var now = new DateTime(1850, 12, 21, 7, 7, 7);
-            var origin = Origin.Create(nameof(TimestampTests), nameof(TestShouldCreateTimestamp_Validate_Invalid));
+            var origin = Origin.Create(Guids.Two(), nameof(TimestampTests), nameof(TestShouldCreateTimestamp_Validate_Invalid));
 
             // When
             var result = Timestamp.Create(now, origin);
@@ -44,7 +45,7 @@ namespace functional.common.tests.valueObjects
         {
             // Given
             Func<DateTime> now() => () => new DateTime(2020, 12, 21, 7, 7, 7);
-            var origin = Origin.Create(nameof(TimestampTests), nameof(TestShouldCreateTimestamp_Validate_Func_Valid));
+            var origin = Origin.Create(Guids.Three(), nameof(TimestampTests), nameof(TestShouldCreateTimestamp_Validate_Func_Valid));
 
             // When
             var result = Timestamp.Create(now(), origin);
@@ -59,7 +60,7 @@ namespace functional.common.tests.valueObjects
         {
             // Given
             Func<DateTime> now() => () => new DateTime(1899, 12, 21, 7, 7, 7);
-            var origin = Origin.Create(nameof(TimestampTests), nameof(TestShouldCreateTimestamp_Validate_Func_Invalid));
+            var origin = Origin.Create(Guids.Four(), nameof(TimestampTests), nameof(TestShouldCreateTimestamp_Validate_Func_Invalid));
 
             // When
             var result = Timestamp.Create(now(), origin);

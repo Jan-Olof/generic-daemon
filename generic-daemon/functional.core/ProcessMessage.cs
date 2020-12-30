@@ -17,7 +17,7 @@ namespace functional.core
                     request => request.RunInteractor(now, guid),
                     () => unit);
 
-            return unit; // TODO: Fix ProcessOneMessage.
+            return unit; // TODO: Fix ProcessOneMessage when interactor returns something.
         }
     }
 }

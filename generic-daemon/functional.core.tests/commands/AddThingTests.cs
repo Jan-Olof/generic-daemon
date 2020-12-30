@@ -20,7 +20,7 @@ namespace functional.core.tests.commands
             const string name = "Cool Name";
 
             // When
-            var result = Guid().CreateAddThing(Now(), name);
+            var result = Guid().CreateAddThing(Now(), name, Guids.Two());
 
             // Then
             Assert.IsTrue(result.IsValid);
@@ -42,7 +42,7 @@ namespace functional.core.tests.commands
             static Func<Guid> Guid() => () => System.Guid.Empty;
 
             // When
-            var result = Guid().CreateAddThing(Now(), name);
+            var result = Guid().CreateAddThing(Now(), name, Guids.Two());
 
             // Then
             Assert.IsTrue(result.IsInvalid());
@@ -50,6 +50,7 @@ namespace functional.core.tests.commands
 
             Assert.AreEqual(expected, errors.Count);
             Assert.AreEqual("The GUID 00000000-0000-0000-0000-000000000000 is invalid.", errors.First().Message);
+            Assert.AreEqual("Origin: CreateAddThing in AddThingExt with Id: 8846492a-0556-4a9e-8f31-b7cba11e650d.", errors.First().Origin.ToString());
         }
     }
 }
