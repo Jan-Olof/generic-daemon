@@ -12,12 +12,12 @@ namespace functional.core
 
         private static Unit ProcessOneMessage(Message message, Func<DateTime> now, Func<Guid> guid)
         {
-            var x = message.MessageToRequest()
+            var oneMessage = message.MessageToRequest()
                 .Match(
                     request => request.RunInteractor(now, guid),
                     () => unit);
 
-            return unit; // TODO: Fix ProcessOneMessage when interactor returns something.
+            return oneMessage; // TODO: Fix ProcessOneMessage when interactor returns something.
         }
     }
 }
