@@ -12,7 +12,7 @@ namespace functional.core
 
         private static Unit ProcessOneMessage(Message message, Func<DateTime> now, Func<Guid> guid)
         {
-            var oneMessage = message.MessageToRequest()
+            var oneMessage = message.CreateRequest()
                 .Match(
                     request => request.RunInteractor(now, guid),
                     () => unit);

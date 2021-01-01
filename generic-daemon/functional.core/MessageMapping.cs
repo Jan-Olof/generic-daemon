@@ -8,7 +8,7 @@ namespace functional.core
 {
     public static class MessageMapping
     {
-        public static Option<Request> MessageToRequest(this Message message) =>
+        public static Option<Request> CreateRequest(this Message message) =>
             message.Type switch
             {
                 MessageTypes.NewThing => DeserializeToRequest<Add>(message),
