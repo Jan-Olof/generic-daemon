@@ -19,7 +19,7 @@ namespace functional.core.commands
             = Timestamp.Create;
 
         private static readonly Func<string, Origin, Validate<Text>> ValidName
-            = Text.CreateAndValidate;
+            = Text.Create;
 
         /// <summary>
         /// Create a new Validate AddThing object.

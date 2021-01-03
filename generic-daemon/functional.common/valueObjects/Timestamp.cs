@@ -12,14 +12,23 @@ namespace functional.common.valueObjects
         private Timestamp(DateTime value) =>
             Value = value;
 
-        public DateTime Value { get; }
+        private DateTime Value { get; }
 
+        /// <summary>
+        /// Create and validate Timestamp.
+        /// </summary>
         public static Validate<Timestamp> Create(Func<DateTime> now, Origin origin) =>
             IsValid(now.Invoke(), origin);
 
+        /// <summary>
+        /// Create and validate Timestamp.
+        /// </summary>
         public static Validate<Timestamp> Create(DateTime now, Origin origin) =>
             IsValid(now, origin);
 
+        /// <summary>
+        /// Create Timestamp or None.
+        /// </summary>
         public static Option<Timestamp> Create(DateTime now) =>
             IsValid(now)
                 ? Some(new Timestamp(now))
@@ -39,6 +48,10 @@ namespace functional.common.valueObjects
 
         public override int GetHashCode() =>
             Value.GetHashCode();
+
+        /// <inheritdoc />
+        public override string ToString() =>
+            Value.ToString("s");
 
         private static bool IsValid(DateTime value) =>
             value > new DateTime(2000, 1, 1) && value < new DateTime(2100, 1, 1);

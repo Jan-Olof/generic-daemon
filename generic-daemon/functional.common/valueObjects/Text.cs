@@ -11,9 +11,26 @@ namespace functional.common.valueObjects
     /// </summary>
     public readonly struct Text
     {
-        private Text(string value) => Value = value;
+        private Text(string value) =>
+            Value = value;
 
         private string Value { get; }
+
+        /// <summary>
+        /// Create Text or None.
+        /// </summary>
+        public static Option<Text> Create(string text) =>
+            string.IsNullOrWhiteSpace(text)
+                ? None
+                : Some(new Text(text));
+
+        /// <summary>
+        /// Create and validate Text.
+        /// </summary>
+        public static Validate<Text> Create(string text, Origin origin) =>
+            string.IsNullOrWhiteSpace(text)
+                ? Invalid(ErrorFactory.TextInvalid(text, origin))
+                : Valid(new Text(text));
 
         public static implicit operator string(Text c) =>
             c.Value;
@@ -33,15 +50,5 @@ namespace functional.common.valueObjects
         /// <inheritdoc />
         public override string ToString() =>
             Value;
-
-        public static Option<Text> Create(string text) =>
-            string.IsNullOrWhiteSpace(text)
-                ? None
-                : Some(new Text(text));
-
-        public static Validate<Text> CreateAndValidate(string text, Origin origin) =>
-            string.IsNullOrWhiteSpace(text)
-                ? Invalid(ErrorFactory.TextInvalid(text, origin))
-                : Valid(new Text(text));
     }
 }

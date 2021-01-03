@@ -2,6 +2,7 @@
 using functional.common.valueObjects.validate;
 using functional.core.requests;
 using System;
+using static functional.common.valueObjects.validate.V;
 
 namespace functional.core.commands
 {
@@ -17,7 +18,7 @@ namespace functional.core.commands
             };
 
         private static Validate<Command> ArgumentOutOfRange(Request request) =>
-            V.Invalid(ErrorFactory.Exception(
+            Invalid(ErrorFactory.Exception(
                 new ArgumentOutOfRangeException(nameof(request)),
                 Origin.Create(request.MessageId, nameof(CommandFactory), nameof(CreateCommand))));
     }
