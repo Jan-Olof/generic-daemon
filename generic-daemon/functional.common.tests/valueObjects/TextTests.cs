@@ -1,8 +1,8 @@
-using functional.common.errors;
-using functional.common.helpers;
+using Functional.Common.Errors;
+using Functional.Common.Helpers;
 using functional.common.tests.SampleObjects;
-using functional.common.valueObjects;
-using functional.common.valueObjects.validate;
+using Functional.Common.DataTypes;
+using Functional.Common.DataTypes.Validate;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace functional.common.tests.valueObjects

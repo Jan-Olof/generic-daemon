@@ -1,13 +1,13 @@
-﻿using functional.common.errors;
-using functional.common.helpers;
+﻿using Functional.Common.Errors;
+using Functional.Common.Helpers;
 using LanguageExt;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using static functional.common.valueObjects.validate.V;
+using static Functional.Common.DataTypes.Validate.V;
 using static LanguageExt.Prelude;
 
-namespace functional.common.valueObjects.validate
+namespace Functional.Common.DataTypes.Validate
 {
     public static class Validate
     {

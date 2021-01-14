@@ -1,7 +1,6 @@
 ﻿using System;
-using functional.common.unique_Identifier;
 
-namespace functional.common.dependencyInjection
+namespace functional.daemon.dependencyInjection
 {
     public class GuidNew : IGuid
     {

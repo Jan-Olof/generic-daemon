@@ -1,4 +1,4 @@
-﻿using functional.common.valueObjects;
+﻿using Functional.Common.DataTypes;
 using System;
 
 namespace functional.core.commands

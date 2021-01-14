@@ -1,4 +1,4 @@
-﻿namespace functional.common.errors
+﻿namespace Functional.Common.Errors
 {
     public sealed record TimestampInvalidError : Error
     {

@@ -8,6 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\functional.common\functional.common.csproj" />
+    <ProjectReference Include="..\functional.common\Functional.Common.csproj" />
   </ItemGroup>
 </Project>

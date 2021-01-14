@@ -10,7 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "functional", "functional", "{8FF85713-860A-4F56-8787-C2083F0C548D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "functional.common", "functional.common\functional.common.csproj", "{BD2FDE2B-B0B1-4EAB-B642-6CC2CFA9C3E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Functional.Common", "functional.common\Functional.Common.csproj", "{BD2FDE2B-B0B1-4EAB-B642-6CC2CFA9C3E8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "functional.core", "functional.core\functional.core.csproj", "{3930A453-0244-49EE-A9F6-096F615CCD86}"
 EndProject
@@ -22,7 +22,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "functional.common.tests", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "functional.core.tests", "functional.core.tests\functional.core.tests.csproj", "{C073B6EF-746B-492C-BAE2-51F08AB9AC9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "functional.infrastructure", "functional.infrastructure\functional.infrastructure.csproj", "{6636DA55-8262-4D40-8A4A-74306ACB5E48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "functional.infrastructure", "functional.infrastructure\functional.infrastructure.csproj", "{6636DA55-8262-4D40-8A4A-74306ACB5E48}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

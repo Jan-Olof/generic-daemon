@@ -1,9 +1,9 @@
-﻿using functional.common.entities.messages;
+﻿using Functional.Common.Entities.Messages;
 using LanguageExt;
 using System;
 using static LanguageExt.Prelude;
 
-namespace functional.common.dependencyInjection
+namespace functional.daemon.dependencyInjection
 {
     public sealed record FakeMessageHandling : IMessageHandling
     {

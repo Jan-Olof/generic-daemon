@@ -1,4 +1,4 @@
-﻿using functional.common.entities;
+﻿using functional.infrastructure.store.dataModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

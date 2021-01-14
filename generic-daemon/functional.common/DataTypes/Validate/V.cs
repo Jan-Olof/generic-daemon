@@ -1,7 +1,7 @@
-﻿using functional.common.errors;
+﻿using Functional.Common.Errors;
 using System.Collections.Generic;
 
-namespace functional.common.valueObjects.validate
+namespace Functional.Common.DataTypes.Validate
 {
     /// <summary>
     /// Create Validation.

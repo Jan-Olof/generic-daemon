@@ -1,10 +1,10 @@
-﻿using functional.common.errors;
-using functional.common.valueObjects.validate;
+﻿using Functional.Common.Errors;
+using Functional.Common.DataTypes.Validate;
 using LanguageExt;
-using static functional.common.valueObjects.validate.V;
+using static Functional.Common.DataTypes.Validate.V;
 using static LanguageExt.Prelude;
 
-namespace functional.common.valueObjects
+namespace Functional.Common.DataTypes
 {
     /// <summary>
     /// A string that contains something.

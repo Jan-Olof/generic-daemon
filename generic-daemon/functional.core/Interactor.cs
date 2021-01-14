@@ -1,6 +1,6 @@
-﻿using functional.common.valueObjects.validate;
-using functional.core.commands;
+﻿using functional.core.commands;
 using functional.core.requests;
+using Functional.Common.DataTypes.Validate;
 using LanguageExt;
 using System;
 using static LanguageExt.Prelude;

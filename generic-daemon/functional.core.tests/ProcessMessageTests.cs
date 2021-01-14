@@ -1,5 +1,5 @@
-﻿using functional.common.entities.messages;
-using functional.common.tests.SampleObjects;
+﻿using functional.common.tests.SampleObjects;
+using Functional.Common.Entities.Messages;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 

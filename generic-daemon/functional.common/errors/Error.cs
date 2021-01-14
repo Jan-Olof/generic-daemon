@@ -2,7 +2,7 @@
 using System;
 using static LanguageExt.Prelude;
 
-namespace functional.common.errors
+namespace Functional.Common.Errors
 {
     public abstract record Error
     {

@@ -1,8 +1,8 @@
-﻿using functional.common.entities.messages;
+﻿using System;
+using Functional.Common.Entities.Messages;
 using LanguageExt;
-using System;
 
-namespace functional.common.dependencyInjection
+namespace functional.daemon.dependencyInjection
 {
     public interface IMessageHandling
     {

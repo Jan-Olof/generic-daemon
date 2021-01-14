@@ -1,11 +1,11 @@
-﻿using functional.common.errors;
-using functional.common.valueObjects.validate;
+﻿using Functional.Common.DataTypes.Validate;
+using Functional.Common.Errors;
 using LanguageExt;
 using System;
-using static functional.common.valueObjects.validate.V;
+using static Functional.Common.DataTypes.Validate.V;
 using static LanguageExt.Prelude;
 
-namespace functional.common.helpers
+namespace Functional.Common.Helpers
 {
     public static class GuidExt
     {

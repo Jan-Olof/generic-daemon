@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace functional.common.dependencyInjection
+namespace functional.daemon.dependencyInjection
 {
     public class NowUtc : INow
     {

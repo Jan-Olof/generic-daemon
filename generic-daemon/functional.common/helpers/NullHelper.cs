@@ -1,7 +1,7 @@
 ﻿using LanguageExt;
 using static LanguageExt.Prelude;
 
-namespace functional.common.helpers
+namespace Functional.Common.Helpers
 {
     public static class NullHelper
     {

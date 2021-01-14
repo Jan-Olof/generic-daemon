@@ -1,6 +1,6 @@
 using functional.common.tests.SampleObjects;
-using functional.common.valueObjects.validate;
 using functional.core.commands;
+using Functional.Common.DataTypes.Validate;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Immutable;

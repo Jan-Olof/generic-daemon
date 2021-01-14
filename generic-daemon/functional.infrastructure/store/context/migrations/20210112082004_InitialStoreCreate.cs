@@ -24,6 +24,18 @@ namespace functional.infrastructure.store.context.migrations
                     table.PrimaryKey("PK_EventStore", x => x.Id);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Things",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "char(36)", nullable: false),
+                    Name = table.Column<string>(type: "varchar(255) CHARACTER SET utf8mb4", maxLength: 255, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Things", x => x.Id);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_EventStore_EntityId",
                 table: "EventStore",
@@ -44,6 +56,9 @@ namespace functional.infrastructure.store.context.migrations
         {
             migrationBuilder.DropTable(
                 name: "EventStore");
+
+            migrationBuilder.DropTable(
+                name: "Things");
         }
     }
 }

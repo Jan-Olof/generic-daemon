@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace functional.common.errors
+namespace Functional.Common.Errors
 {
     public static class ErrorFactory
     {

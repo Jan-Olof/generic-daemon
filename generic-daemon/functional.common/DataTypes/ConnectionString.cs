@@ -1,9 +1,9 @@
-﻿namespace functional.common.valueObjects
+﻿namespace Functional.Common.DataTypes
 {
     /// <summary>
     /// A connection string to a data store.
     /// </summary>
-    public struct ConnectionString
+    public readonly struct ConnectionString
     {
         private ConnectionString(string value) =>
             Value = value;

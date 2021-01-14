@@ -1,9 +1,9 @@
-﻿using functional.common.errors;
-using functional.common.helpers;
-using functional.common.valueObjects;
-using functional.common.valueObjects.validate;
+﻿using Functional.Common.DataTypes;
+using Functional.Common.DataTypes.Validate;
+using Functional.Common.Errors;
+using Functional.Common.Helpers;
 using System;
-using static functional.common.valueObjects.validate.V;
+using static Functional.Common.DataTypes.Validate.V;
 
 namespace functional.core.commands
 {

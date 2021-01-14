@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace functional.common.unique_Identifier
+namespace functional.daemon.dependencyInjection
 {
     public interface IGuid
     {

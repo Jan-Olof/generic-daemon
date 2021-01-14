@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace functional.common.entities.messages
+namespace Functional.Common.Entities.Messages
 {
     public sealed record Message
     {

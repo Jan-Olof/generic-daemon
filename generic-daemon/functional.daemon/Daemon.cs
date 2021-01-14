@@ -1,6 +1,5 @@
-﻿using functional.common.dependencyInjection;
-using functional.common.unique_Identifier;
-using functional.core;
+﻿using functional.core;
+using functional.daemon.dependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
@@ -15,16 +14,18 @@ namespace functional.daemon
         private readonly IMessageHandling _messageHandling;
         private readonly IGuid _guid;
         private readonly INow _now;
+        private readonly IDbContexts _dbContexts;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Daemon" /> class.
         /// </summary>
-        public Daemon(ILogger<Daemon> logger, IMessageHandling messageHandling, INow now, IGuid guid)
+        public Daemon(ILogger<Daemon> logger, IMessageHandling messageHandling, INow now, IGuid guid, IDbContexts dbContexts)
         {
             _logger = logger;
             _messageHandling = messageHandling;
             _guid = guid;
             _now = now;
+            _dbContexts = dbContexts;
         }
 
         /// <inheritdoc />

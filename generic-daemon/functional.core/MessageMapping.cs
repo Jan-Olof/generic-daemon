@@ -1,5 +1,5 @@
-﻿using functional.common.entities.messages;
-using functional.common.helpers;
+﻿using Functional.Common.Entities.Messages;
+using Functional.Common.Helpers;
 using functional.core.requests;
 using LanguageExt;
 using static LanguageExt.Prelude;

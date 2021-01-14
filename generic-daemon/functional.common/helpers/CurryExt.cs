@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace functional.common.helpers
+namespace Functional.Common.Helpers
 {
     public static class CurryExt
     {

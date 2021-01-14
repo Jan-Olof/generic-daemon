@@ -1,4 +1,4 @@
-﻿namespace functional.common.entities.messages
+﻿namespace Functional.Common.Entities.Messages
 {
     public enum MessageTypes
     {

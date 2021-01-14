@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 
-namespace functional.common.helpers
+namespace Functional.Common.Helpers
 {
     public static class ConfigurationHelper
     {

@@ -1,15 +1,15 @@
-﻿using functional.common.errors;
-using functional.common.helpers;
+﻿using Functional.Common.Errors;
+using Functional.Common.Helpers;
 using LanguageExt;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using static functional.common.valueObjects.validate.V;
+using static Functional.Common.DataTypes.Validate.V;
 
 #pragma warning disable 8618
 #pragma warning disable 8601
 
-namespace functional.common.valueObjects.validate
+namespace Functional.Common.DataTypes.Validate
 {
     public readonly struct Validate<T>
     {

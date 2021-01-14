@@ -1,7 +1,7 @@
 ﻿using LanguageExt;
 using System.Text.Json;
 
-namespace functional.common.helpers
+namespace Functional.Common.Helpers
 {
     public static class JsonHelper
     {
