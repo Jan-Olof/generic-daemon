@@ -1,12 +1,12 @@
-﻿using functional.core;
-using functional.daemon.dependencyInjection;
+﻿using Functional.Core;
+using Functional.Daemon.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace functional.daemon
+namespace Functional.Daemon
 {
     public class Daemon : BackgroundService
     {

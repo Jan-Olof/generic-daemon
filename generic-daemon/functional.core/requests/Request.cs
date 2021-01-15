@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace functional.core.requests
+namespace Functional.Core.Requests
 {
     public abstract record Request
     {

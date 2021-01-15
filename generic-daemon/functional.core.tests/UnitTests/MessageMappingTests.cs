@@ -1,11 +1,11 @@
-﻿using Functional.Common.Entities.Messages;
+﻿using System;
+using Functional.Common.Entities.Messages;
 using Functional.Common.Helpers;
-using functional.common.tests.SampleObjects;
-using functional.core.requests;
+using Functional.Common.Tests.SampleObjects;
+using Functional.Core.Requests;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 
-namespace functional.core.tests
+namespace Functional.Core.Tests.UnitTests
 {
     [TestClass]
     public class MessageMappingTests

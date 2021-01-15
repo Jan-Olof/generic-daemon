@@ -1,10 +1,10 @@
 ﻿using Functional.Common.DataTypes.Validate;
 using Functional.Common.Errors;
-using functional.core.requests;
+using Functional.Core.Requests;
 using System;
 using static Functional.Common.DataTypes.Validate.V;
 
-namespace functional.core.commands
+namespace Functional.Core.Commands
 {
     public static class CommandFactory
     {

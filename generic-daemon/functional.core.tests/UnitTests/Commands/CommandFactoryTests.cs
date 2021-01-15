@@ -1,11 +1,11 @@
-﻿using functional.common.tests.SampleObjects;
-using functional.core.commands;
-using functional.core.tests.SampleObjects;
-using Functional.Common.DataTypes.Validate;
+﻿using Functional.Common.DataTypes.Validate;
+using Functional.Common.Tests.SampleObjects;
+using Functional.Core.Commands;
+using Functional.Core.Tests.SampleObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace functional.core.tests.commands
+namespace Functional.Core.Tests.UnitTests.Commands
 {
     [TestClass]
     public class CommandFactoryTests

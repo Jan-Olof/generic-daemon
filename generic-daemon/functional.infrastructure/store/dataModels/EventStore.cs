@@ -1,7 +1,7 @@
 ﻿using System;
 using Functional.Common.Entities.Messages;
 
-namespace functional.infrastructure.store.dataModels
+namespace Functional.Infrastructure.Store.DataModels
 {
     public record EventStore
     {

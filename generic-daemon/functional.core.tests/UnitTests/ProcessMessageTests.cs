@@ -1,9 +1,9 @@
-﻿using functional.common.tests.SampleObjects;
-using Functional.Common.Entities.Messages;
+﻿using Functional.Common.Entities.Messages;
+using Functional.Common.Tests.SampleObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace functional.core.tests
+namespace Functional.Core.Tests.UnitTests
 {
     [TestClass]
     public class ProcessMessageTests

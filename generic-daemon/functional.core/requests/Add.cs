@@ -2,7 +2,7 @@
 // ReSharper disable MemberCanBePrivate.Global
 // ReSharper disable ClassNeverInstantiated.Global
 
-namespace functional.core.requests
+namespace Functional.Core.Requests
 {
     public record Add : Request
     {

@@ -1,10 +1,10 @@
 ﻿using Functional.Common.Entities.Messages;
 using Functional.Common.Helpers;
-using functional.core.requests;
+using Functional.Core.Requests;
 using LanguageExt;
 using static LanguageExt.Prelude;
 
-namespace functional.core
+namespace Functional.Core
 {
     public static class MessageMapping
     {

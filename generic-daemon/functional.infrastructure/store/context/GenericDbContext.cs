@@ -1,8 +1,8 @@
-﻿using functional.infrastructure.store.dataModels;
+﻿using Functional.Infrastructure.Store.DataModels;
 using Functional.Common.DataTypes;
 using Microsoft.EntityFrameworkCore;
 
-namespace functional.infrastructure.store.context
+namespace Functional.Infrastructure.Store.Context
 {
     public class GenericDbContext : DbContext
     {

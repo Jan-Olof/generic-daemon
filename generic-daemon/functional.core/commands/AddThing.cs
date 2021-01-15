@@ -1,7 +1,7 @@
 ﻿using Functional.Common.DataTypes;
 using System;
 
-namespace functional.core.commands
+namespace Functional.Core.Commands
 {
     public record AddThing : Command
     {

@@ -2,7 +2,7 @@
 using Functional.Common.Entities.Messages;
 using LanguageExt;
 
-namespace functional.daemon.dependencyInjection
+namespace Functional.Daemon.DependencyInjection
 {
     public interface IMessageHandling
     {

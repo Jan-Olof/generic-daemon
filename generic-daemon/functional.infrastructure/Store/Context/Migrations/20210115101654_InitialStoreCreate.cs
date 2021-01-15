@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace functional.infrastructure.store.context.migrations
+namespace Functional.Infrastructure.Store.Context.Migrations
 {
     public partial class InitialStoreCreate : Migration
     {

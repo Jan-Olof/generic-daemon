@@ -1,6 +1,6 @@
 ﻿using Functional.Common.DataTypes;
 
-namespace functional.daemon.dependencyInjection
+namespace Functional.Daemon.DependencyInjection
 {
     public class ConnectionStrings
     {

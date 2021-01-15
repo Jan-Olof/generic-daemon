@@ -14,8 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\functional.common.tests\functional.common.tests.csproj" />
+    <ProjectReference Include="..\functional.common.tests\Functional.Common.Tests.csproj" />
     <ProjectReference Include="..\functional.common\Functional.Common.csproj" />
-    <ProjectReference Include="..\functional.core\functional.core.csproj" />
+    <ProjectReference Include="..\functional.core\Functional.Core.csproj" />
   </ItemGroup>
 </Project>

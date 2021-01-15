@@ -1,8 +1,8 @@
-﻿using functional.infrastructure.store.dataModels;
+﻿using Functional.Infrastructure.Store.DataModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace functional.infrastructure.store.context
+namespace Functional.Infrastructure.Store.Context
 {
     public class EventStoreConfiguration : IEntityTypeConfiguration<EventStore>
     {

@@ -1,11 +1,11 @@
-﻿using functional.core.commands;
-using functional.core.requests;
+﻿using Functional.Core.Commands;
+using Functional.Core.Requests;
 using Functional.Common.DataTypes.Validate;
 using LanguageExt;
 using System;
 using static LanguageExt.Prelude;
 
-namespace functional.core
+namespace Functional.Core
 {
     public static class Interactor
     {

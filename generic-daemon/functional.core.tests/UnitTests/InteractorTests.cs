@@ -1,9 +1,9 @@
-﻿using functional.common.tests.SampleObjects;
-using functional.core.tests.SampleObjects;
+﻿using System;
+using Functional.Common.Tests.SampleObjects;
+using Functional.Core.Tests.SampleObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 
-namespace functional.core.tests
+namespace Functional.Core.Tests.UnitTests
 {
     [TestClass]
     public class InteractorTests

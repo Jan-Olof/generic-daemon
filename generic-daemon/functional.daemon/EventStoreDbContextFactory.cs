@@ -1,11 +1,11 @@
 ﻿using Functional.Common.Helpers;
-using functional.infrastructure.store.context;
+using Functional.Infrastructure.Store.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using System;
 
-namespace functional.daemon
+namespace Functional.Daemon
 {
     public class EventStoreDbContextFactory : IDesignTimeDbContextFactory<GenericDbContext>
     {

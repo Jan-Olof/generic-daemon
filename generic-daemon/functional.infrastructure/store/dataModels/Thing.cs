@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace functional.infrastructure.store.dataModels
+namespace Functional.Infrastructure.Store.DataModels
 {
     public record Thing
     {

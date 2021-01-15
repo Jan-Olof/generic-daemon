@@ -1,9 +1,9 @@
-﻿using functional.common.tests.SampleObjects;
-using functional.core.requests;
-using functional.core.tests.SampleObjects;
+﻿using Functional.Common.Tests.SampleObjects;
+using Functional.Core.Requests;
+using Functional.Core.Tests.SampleObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace functional.core.tests.requests
+namespace Functional.Core.Tests.UnitTests.Requests
 {
     [TestClass]
     public class AddTests

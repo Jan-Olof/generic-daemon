@@ -1,11 +1,11 @@
 ﻿using Functional.Common.Helpers;
-using functional.daemon.dependencyInjection;
+using Functional.Daemon.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace functional.daemon
+namespace Functional.Daemon
 {
     public static class Startup
     {

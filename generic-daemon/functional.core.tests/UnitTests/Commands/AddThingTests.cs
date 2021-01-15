@@ -1,12 +1,12 @@
-using functional.common.tests.SampleObjects;
-using functional.core.commands;
 using Functional.Common.DataTypes.Validate;
+using Functional.Common.Tests.SampleObjects;
+using Functional.Core.Commands;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Immutable;
 using System.Linq;
 
-namespace functional.core.tests.commands
+namespace Functional.Core.Tests.UnitTests.Commands
 {
     [TestClass]
     public class AddThingTests

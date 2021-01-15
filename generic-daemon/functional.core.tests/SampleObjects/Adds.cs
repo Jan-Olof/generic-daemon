@@ -1,7 +1,7 @@
-﻿using functional.common.tests.SampleObjects;
-using functional.core.requests;
+﻿using Functional.Common.Tests.SampleObjects;
+using Functional.Core.Requests;
 
-namespace functional.core.tests.SampleObjects
+namespace Functional.Core.Tests.SampleObjects
 {
     public static class Adds
     {

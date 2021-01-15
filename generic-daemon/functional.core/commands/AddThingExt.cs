@@ -5,7 +5,7 @@ using Functional.Common.Helpers;
 using System;
 using static Functional.Common.DataTypes.Validate.V;
 
-namespace functional.core.commands
+namespace Functional.Core.Commands
 {
     public static class AddThingExt
     {

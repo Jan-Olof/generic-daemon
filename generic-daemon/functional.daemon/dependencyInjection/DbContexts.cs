@@ -1,8 +1,8 @@
 ﻿using Functional.Common.DataTypes.Validate;
-using functional.infrastructure.store.context;
+using Functional.Infrastructure.Store.Context;
 using System;
 
-namespace functional.daemon.dependencyInjection
+namespace Functional.Daemon.DependencyInjection
 {
     public class DbContexts : IDbContexts
     {

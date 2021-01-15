@@ -3,7 +3,7 @@ using LanguageExt;
 using System;
 using static LanguageExt.Prelude;
 
-namespace functional.daemon.dependencyInjection
+namespace Functional.Daemon.DependencyInjection
 {
     public sealed record FakeMessageHandling : IMessageHandling
     {

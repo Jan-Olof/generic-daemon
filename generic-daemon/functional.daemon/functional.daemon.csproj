@@ -22,8 +22,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\functional.common\Functional.Common.csproj" />
-    <ProjectReference Include="..\functional.core\functional.core.csproj" />
-    <ProjectReference Include="..\functional.infrastructure\functional.infrastructure.csproj" />
+    <ProjectReference Include="..\functional.core\Functional.Core.csproj" />
+    <ProjectReference Include="..\functional.infrastructure\Functional.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>

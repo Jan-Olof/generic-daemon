@@ -3,7 +3,7 @@ using LanguageExt;
 using System;
 using static LanguageExt.Prelude;
 
-namespace functional.core
+namespace Functional.Core
 {
     public static class ProcessMessage
     {

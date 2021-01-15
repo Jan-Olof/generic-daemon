@@ -4,7 +4,7 @@
 
 using System;
 
-namespace functional.core.requests
+namespace Functional.Core.Requests
 {
     public record Remove : Request
     {
