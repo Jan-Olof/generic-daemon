@@ -1,6 +1,7 @@
 ﻿using Functional.Common.DataTypes.Validate;
 using Functional.Common.Errors;
 using System;
+using static Functional.F;
 
 namespace Functional.Common.DataTypes.Try
 {
@@ -14,13 +15,13 @@ namespace Functional.Common.DataTypes.Try
 
         // TODO: Use these?
 
-        //public static Try<R> Map<T, R>
-        //    (this Try<T> @try, Func<T, R> f)
-        //    => ()
-        //        => @try.Run()
-        //            .Match<Validate<R>>(
-        //                ex => ex,
-        //                t => f(t));
+        public static Try<R> Map<T, R>
+            (this Try<T> @try, Func<T, R> f)
+            => ()
+                => @try.Run()
+                    .Match<Validate<R>>(
+                        ex => Invalid(ex),
+                        t => f(t));
 
         //public static Try<Func<T2, R>> Map<T1, T2, R>
         //    (this Try<T1> @try, Func<T1, T2, R> func)

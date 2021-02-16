@@ -86,14 +86,12 @@ namespace Functional.Common.DataTypes.Validate
                  invalid: (err) => Invalid(err),
                  valid: (r) => Valid(project(t, r))));
 
-        public struct Invalid
+        public readonly struct Invalid
         {
-            internal IEnumerable<Error> Errors;
+            internal readonly IEnumerable<Error> Errors;
 
-            public Invalid(IEnumerable<Error> errors)
-            {
+            public Invalid(IEnumerable<Error> errors) =>
                 Errors = errors;
-            }
         }
     }
 }
