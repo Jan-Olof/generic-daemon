@@ -13,6 +13,13 @@ namespace Functional.Common.Errors
             Exception = None;
         }
 
+        protected Error(Exception exception)
+        {
+            Message = exception.Message;
+            Origin = Origin.Create(exception);
+            Exception = exception;
+        }
+
         protected Error(Exception exception, string message, Origin origin)
         {
             Message = message;

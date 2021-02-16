@@ -2,7 +2,7 @@
 using Functional.Common.Errors;
 using Functional.Core.Requests;
 using System;
-using static Functional.Common.DataTypes.Validate.V;
+using static Functional.F;
 
 namespace Functional.Core.Commands
 {
@@ -18,8 +18,7 @@ namespace Functional.Core.Commands
             };
 
         private static Validate<Command> ArgumentOutOfRange(Request request) =>
-            Invalid(ErrorFactory.Exception(
-                new ArgumentOutOfRangeException(nameof(request)),
-                Origin.Create(request.MessageId, nameof(CommandFactory), nameof(CreateCommand))));
+            Invalid(new ArgumentOutOfRangeException(nameof(request))
+                .CreateExceptionError(Origin.Create(request.MessageId, nameof(CommandFactory), nameof(CreateCommand))));
     }
 }

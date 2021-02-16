@@ -1,12 +1,18 @@
-﻿namespace Functional.Common.DataTypes.Try
+﻿using Functional.Common.DataTypes.Validate;
+using Functional.Common.Errors;
+using System;
+
+namespace Functional.Common.DataTypes.Try
 {
     public static class TryExt
     {
-        //public static Validate<T> Run<T>(this Try<T> @try)
-        //{
-        //    try { return @try(); }
-        //    catch (Exception ex) { return ex; }
-        //}
+        public static Validate<T> Run<T>(this Try<T> @try)
+        {
+            try { return @try(); }
+            catch (Exception ex) { return ex.CreateExceptionError(); }
+        }
+
+        // TODO: Use these?
 
         //public static Try<R> Map<T, R>
         //    (this Try<T> @try, Func<T, R> f)

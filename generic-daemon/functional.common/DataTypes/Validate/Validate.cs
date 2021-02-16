@@ -4,7 +4,7 @@ using LanguageExt;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using static Functional.Common.DataTypes.Validate.V;
+using static Functional.F;
 
 #pragma warning disable 8618
 #pragma warning disable 8601
@@ -13,22 +13,17 @@ namespace Functional.Common.DataTypes.Validate
 {
     public readonly struct Validate<T>
     {
-        internal IEnumerable<Error> Errors { get; }
-
-        internal T Value { get; }
-
-        public bool IsValid { get; }
-
         /// <summary>
         /// The Return function for Validation.
         /// </summary>
         public static Func<T, Validate<T>> Return = t => Valid(t);
 
-        public static Validate<T> Fail(IEnumerable<Error> errors) =>
-            new Validate<T>(errors);
-
-        public static Validate<T> Fail(params Error[] errors) =>
-            new Validate<T>(errors.AsEnumerable());
+        internal Validate(T right)
+        {
+            IsValid = true;
+            Value = right;
+            Errors = Enumerable.Empty<Error>();
+        }
 
         private Validate(IEnumerable<Error> errors)
         {
@@ -37,12 +32,17 @@ namespace Functional.Common.DataTypes.Validate
             Value = default(T);
         }
 
-        internal Validate(T right)
-        {
-            IsValid = true;
-            Value = right;
-            Errors = Enumerable.Empty<Error>();
-        }
+        public bool IsValid { get; }
+
+        internal IEnumerable<Error> Errors { get; }
+
+        internal T Value { get; }
+
+        public static Validate<T> Fail(IEnumerable<Error> errors) =>
+            new Validate<T>(errors);
+
+        public static Validate<T> Fail(params Error[] errors) =>
+            new Validate<T>(errors.AsEnumerable());
 
         public static implicit operator Validate<T>(Error error) =>
             new Validate<T>(new[] { error });
@@ -52,28 +52,30 @@ namespace Functional.Common.DataTypes.Validate
 
         public static implicit operator Validate<T>(T right) => Valid(right);
 
+        public IEnumerator<T> AsEnumerable()
+        {
+            if (IsValid) yield return Value;
+        }
+
+        public override bool Equals(object? obj) =>
+            ToString() == obj?.ToString();
+
+        public override int GetHashCode() =>
+            throw new NotImplementedException();
+
         public TR Match<TR>(Func<IEnumerable<Error>, TR> invalid, Func<T, TR> valid) =>
-            IsValid
+                                    IsValid
                 ? valid(Value)
                 : invalid(Errors);
 
         public Unit Match(Action<IEnumerable<Error>> invalid, Action<T> valid) =>
             Match(invalid.ToFunc(), valid.ToFunc());
 
-        public IEnumerator<T> AsEnumerable()
-        {
-            if (IsValid) yield return Value;
-        }
-
         public override string ToString() =>
             IsValid
                 ? $"Valid({Value})"
                 : $"Invalid([{string.Join(", ", Errors)}])";
 
-        public override bool Equals(object? obj) =>
-            ToString() == obj?.ToString(); // hack
-
-        public override int GetHashCode() =>
-            throw new NotImplementedException();
+        // hack
     }
 }

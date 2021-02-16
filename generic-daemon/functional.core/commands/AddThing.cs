@@ -1,5 +1,5 @@
-﻿using Functional.Common.DataTypes;
-using System;
+﻿using System;
+using Functional.Common.DataTypes;
 
 namespace Functional.Core.Commands
 {

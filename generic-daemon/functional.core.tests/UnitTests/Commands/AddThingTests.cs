@@ -1,10 +1,10 @@
-using Functional.Common.DataTypes.Validate;
-using Functional.Common.Tests.SampleObjects;
+using Functional.Tests.SampleObjects;
 using Functional.Core.Commands;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Immutable;
 using System.Linq;
+using Functional.Common.DataTypes.Validate;
 
 namespace Functional.Core.Tests.UnitTests.Commands
 {

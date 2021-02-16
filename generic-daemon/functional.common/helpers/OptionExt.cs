@@ -1,5 +1,5 @@
-﻿using LanguageExt;
-using System;
+﻿using System;
+using LanguageExt;
 
 namespace Functional.Common.Helpers
 {

@@ -2,7 +2,7 @@
 using Functional.Common.Errors;
 using LanguageExt;
 using System;
-using static Functional.Common.DataTypes.Validate.V;
+using static Functional.F;
 using static LanguageExt.Prelude;
 
 namespace Functional.Common.Helpers
@@ -15,7 +15,7 @@ namespace Functional.Common.Helpers
         public static Validate<Guid> CreateAndValidate(this Guid guid, Origin origin) =>
             IsValid(guid)
                 ? Valid(guid)
-                : Invalid(ErrorFactory.GuidInvalid(guid.ToString(), origin));
+                : Invalid(guid.ToString().CreateGuidInvalidError(origin));
 
         public static bool IsEmpty(this Guid guid) =>
             guid.Equals(Guid.Empty);

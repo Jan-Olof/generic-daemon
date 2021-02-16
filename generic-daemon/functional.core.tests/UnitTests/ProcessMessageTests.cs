@@ -1,7 +1,7 @@
-﻿using Functional.Common.Entities.Messages;
-using Functional.Common.Tests.SampleObjects;
+﻿using Functional.Tests.SampleObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using Functional.Common.Entities.Messages;
 
 namespace Functional.Core.Tests.UnitTests
 {

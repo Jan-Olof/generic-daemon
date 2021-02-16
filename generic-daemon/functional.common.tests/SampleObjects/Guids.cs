@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Functional.Common.Tests.SampleObjects
+namespace Functional.Tests.SampleObjects
 {
     public static class Guids
     {

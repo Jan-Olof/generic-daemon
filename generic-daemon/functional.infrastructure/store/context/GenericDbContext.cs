@@ -1,5 +1,5 @@
-﻿using Functional.Infrastructure.Store.DataModels;
-using Functional.Common.DataTypes;
+﻿using Functional.Common.DataTypes;
+using Functional.Infrastructure.Store.DataModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace Functional.Infrastructure.Store.Context

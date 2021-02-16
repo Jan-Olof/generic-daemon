@@ -1,12 +1,12 @@
-using Functional.Common.Tests.SampleObjects;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using Functional.Common.DataTypes;
 using Functional.Common.DataTypes.Validate;
 using Functional.Common.Errors;
 using Functional.Common.Helpers;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+using Functional.Tests.SampleObjects;
 
-namespace Functional.Common.Tests.UnitTests.DataTypes
+namespace Functional.Tests.UnitTests.DataTypes
 {
     [TestClass]
     public class TimestampTests

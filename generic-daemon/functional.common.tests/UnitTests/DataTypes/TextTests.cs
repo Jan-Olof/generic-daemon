@@ -1,11 +1,11 @@
-using Functional.Common.Tests.SampleObjects;
 using Functional.Common.DataTypes;
 using Functional.Common.DataTypes.Validate;
 using Functional.Common.Errors;
 using Functional.Common.Helpers;
+using Functional.Tests.SampleObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Functional.Common.Tests.UnitTests.DataTypes
+namespace Functional.Tests.UnitTests.DataTypes
 {
     [TestClass]
     public class TextTests

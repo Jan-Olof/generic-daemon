@@ -1,12 +1,15 @@
-﻿using Functional.Common.Errors;
+﻿// ReSharper disable CheckNamespace
+
+using Functional.Common.DataTypes.Validate;
+using Functional.Common.Errors;
 using System.Collections.Generic;
 
-namespace Functional.Common.DataTypes.Validate
+namespace Functional
 {
     /// <summary>
     /// Create Validation.
     /// </summary>
-    public static partial class V
+    public static partial class F
     {
         /// <summary>
         /// Create a Validation in the Valid state.

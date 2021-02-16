@@ -1,6 +1,6 @@
-﻿using Functional.Core.Commands;
+﻿using Functional.Common.DataTypes.Validate;
+using Functional.Core.Commands;
 using Functional.Core.Requests;
-using Functional.Common.DataTypes.Validate;
 using LanguageExt;
 using System;
 using static LanguageExt.Prelude;

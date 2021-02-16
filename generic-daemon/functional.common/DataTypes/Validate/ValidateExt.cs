@@ -4,7 +4,7 @@ using LanguageExt;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using static Functional.Common.DataTypes.Validate.V;
+using static Functional.F;
 using static LanguageExt.Prelude;
 
 namespace Functional.Common.DataTypes.Validate

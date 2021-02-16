@@ -1,5 +1,5 @@
-﻿using LanguageExt;
-using System.Text.Json;
+﻿using System.Text.Json;
+using LanguageExt;
 
 namespace Functional.Common.Helpers
 {

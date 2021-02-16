@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 
 namespace Functional.Common.Helpers
@@ -15,7 +16,7 @@ namespace Functional.Common.Helpers
         {
             var list = e.ToList();
             list.Add(n);
-            return list;
+            return list.ToImmutableList();
         }
 
         /// <summary>
@@ -25,7 +26,7 @@ namespace Functional.Common.Helpers
         {
             var list = e.ToList();
             list.AddRange(n);
-            return list;
+            return list.ToImmutableList();
         }
 
         /// <summary>

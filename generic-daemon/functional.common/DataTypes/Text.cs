@@ -1,7 +1,7 @@
-﻿using Functional.Common.Errors;
-using Functional.Common.DataTypes.Validate;
+﻿using Functional.Common.DataTypes.Validate;
+using Functional.Common.Errors;
 using LanguageExt;
-using static Functional.Common.DataTypes.Validate.V;
+using static Functional.F;
 using static LanguageExt.Prelude;
 
 namespace Functional.Common.DataTypes
@@ -29,7 +29,7 @@ namespace Functional.Common.DataTypes
         /// </summary>
         public static Validate<Text> Create(string text, Origin origin) =>
             string.IsNullOrWhiteSpace(text)
-                ? Invalid(ErrorFactory.TextInvalid(text, origin))
+                ? Invalid(text.CreateTextInvalidError(origin))
                 : Valid(new Text(text));
 
         public static implicit operator string(Text c) =>

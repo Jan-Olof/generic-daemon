@@ -1,4 +1,4 @@
-﻿using Functional.Common.Tests.SampleObjects;
+﻿using Functional.Tests.SampleObjects;
 using Functional.Core.Requests;
 using Functional.Core.Tests.SampleObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;

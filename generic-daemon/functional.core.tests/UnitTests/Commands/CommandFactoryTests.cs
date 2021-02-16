@@ -1,9 +1,9 @@
-﻿using Functional.Common.DataTypes.Validate;
-using Functional.Common.Tests.SampleObjects;
+﻿using Functional.Tests.SampleObjects;
 using Functional.Core.Commands;
 using Functional.Core.Tests.SampleObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using Functional.Common.DataTypes.Validate;
 
 namespace Functional.Core.Tests.UnitTests.Commands
 {

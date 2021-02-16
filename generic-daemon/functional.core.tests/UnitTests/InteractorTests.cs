@@ -1,5 +1,5 @@
 ﻿using System;
-using Functional.Common.Tests.SampleObjects;
+using Functional.Tests.SampleObjects;
 using Functional.Core.Tests.SampleObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

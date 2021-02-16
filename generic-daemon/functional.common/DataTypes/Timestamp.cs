@@ -1,8 +1,8 @@
-﻿using Functional.Common.Errors;
-using Functional.Common.DataTypes.Validate;
+﻿using Functional.Common.DataTypes.Validate;
+using Functional.Common.Errors;
 using LanguageExt;
 using System;
-using static Functional.Common.DataTypes.Validate.V;
+using static Functional.F;
 using static LanguageExt.Prelude;
 
 namespace Functional.Common.DataTypes
@@ -59,6 +59,6 @@ namespace Functional.Common.DataTypes
         private static Validate<Timestamp> IsValid(DateTime value, Origin origin) =>
             IsValid(value)
                 ? Valid(new Timestamp(value))
-                : Invalid(ErrorFactory.TimestampInvalid(value.ToString("s"), origin));
+                : Invalid(value.ToString("s").CreateTimestampInvalidError(origin));
     }
 }

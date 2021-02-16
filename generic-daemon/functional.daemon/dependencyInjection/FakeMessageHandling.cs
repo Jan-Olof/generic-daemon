@@ -1,6 +1,6 @@
-﻿using Functional.Common.Entities.Messages;
-using LanguageExt;
+﻿using LanguageExt;
 using System;
+using Functional.Common.Entities.Messages;
 using static LanguageExt.Prelude;
 
 namespace Functional.Daemon.DependencyInjection

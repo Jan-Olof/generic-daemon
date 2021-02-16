@@ -1,9 +1,9 @@
-﻿using Functional.Common.Helpers;
-using Functional.Infrastructure.Store.Context;
+﻿using Functional.Infrastructure.Store.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using System;
+using Functional.Common.Helpers;
 
 namespace Functional.Daemon
 {
